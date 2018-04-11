@@ -1,0 +1,20 @@
+{%extends 'base.html' %}
+{% load static %}
+
+{%block pagetitle%}{{from}}{%endblock pagetitle%}
+{%block css%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}">
+{%endblock css%}
+
+{%block body%}
+<div class="">
+  <p id="flag">{{from}}</p>
+  <form class="" action="" method="post"> {%csrf_token%}
+    {{form.as_p}}
+    <button type="submit" id="sub_form">Submit</button>
+  </form>
+</div>
+{%endblock body%}
+{%block jsAfterDOM%}
+<script src="{% static 'js/post.js' %}"></script>
+{%endblock jsAfterDOM%}

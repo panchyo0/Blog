@@ -1,0 +1,16 @@
+{%extends 'base.html' %}
+
+{% load static %}
+
+{%block pagetitle%}{{objects.Title}} | {{block.super}}{%endblock pagetitle%}
+
+{%block css%}
+{%endblock css%}
+
+{%block body%}
+<div class="container">
+  <p>{{objects.Title}}</p>
+  <p>{{objects.Content}}</p>
+  <p>{{objects.updateTime}}</p>
+</div>
+{%endblock body%}

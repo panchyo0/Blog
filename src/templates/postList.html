@@ -1,0 +1,14 @@
+{%extends 'base.html' %}
+
+{% load static %}
+
+{%block css%}
+{%endblock css%}
+
+{%block body%}
+<div class="container">
+  {%for obj in objects_list%}
+    <a href="{%url "article:detail" pk=obj.Id %}"><p>{{obj.Title}}</p></a>
+  {%endfor%}
+</div>
+{%endblock body%}
