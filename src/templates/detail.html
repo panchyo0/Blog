@@ -15,6 +15,9 @@
   {%endif%}
   <p>{{objects.Content}}</p>
   <p>{{objects.updateTime}}</p>
+  {%if user.is_authenticated%}
+    <a href="{%url "article:delete" pk=objects.Id %}" class="btn btn-default">Delete</a>
+  {%endif%}
   <!-- {%if objects.Image%}
     <img src="{{objects.Image.url}}" class="img-responsive">
   {%endif%} -->

@@ -16,7 +16,7 @@ def listArticle(request):
         quearyset=Article.objects.filter(Publish=True).order_by("-UpdateTime")
     else:
         quearyset=Article.objects.all()
-    paginator = Paginator(quearyset, 5) # Show 2 contacts per page
+    paginator = Paginator(quearyset, 7) # Show 2 contacts per page
     page = request.GET.get('page')
     try:
         contacts = paginator.page(page)
