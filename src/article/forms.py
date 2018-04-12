@@ -9,4 +9,5 @@ class PostForm(forms.ModelForm):
             "Title",
             "Content",
             "Publish",
+            "Image"
         ]

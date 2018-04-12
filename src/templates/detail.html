@@ -10,7 +10,13 @@
 {%block body%}
 <div class="container">
   <p>{{objects.Title}}</p>
+  {%if not objects.Publish%}
+  <p>Draft</p>
+  {%endif%}
   <p>{{objects.Content}}</p>
   <p>{{objects.updateTime}}</p>
+  <!-- {%if objects.Image%}
+    <img src="{{objects.Image.url}}" class="img-responsive">
+  {%endif%} -->
 </div>
 {%endblock body%}

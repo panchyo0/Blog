@@ -8,8 +8,8 @@ from .models import Article
 class ArticleAdmin(admin.ModelAdmin):
     """docstring forArticleAdmin."""
     list_display = ["Id","Title",
-                    "updateTime",
-                    "build",
+                    "UpdateTime",
+                    "Build",
                     "Publish"]
     class Meta:
         model=Article

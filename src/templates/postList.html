@@ -6,9 +6,58 @@
 {%endblock css%}
 
 {%block body%}
-<div class="container">
+<div class="row">
   {%for obj in objects_list%}
-    <a href="{%url "article:detail" pk=obj.Id %}"><p>{{obj.Title}}</p></a>
+    <a href="{%url "article:detail" pk=obj.Id %}"><h2>{{obj.Title}}</h2></a>
+    <p>{{obj.Content|truncatechars:30}}</p>
+    <p>{{obj.Build|timesince}}</p>
+    {%if obj.Image%}
+      <img src="{{obj.Image.url}}" class="img-responsive">
+    {%endif%}
   {%endfor%}
+  <!-- <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="/w3images/lights.jpg">
+        <img src="/w3images/lights.jpg" alt="Lights" style="width:100%">
+        <div class="caption">
+          <p>Lorem ipsum...</p>
+        </div>
+      </a>
+    </div>
+  </div> -->
 </div>
+
+<!-- start pagination -->
+<nav aria-label="...">
+  <div class="pagination">
+      {% if objects_list.has_previous %}
+        <li class="page-item"><a href="?page=1">&laquo; first</a></li>
+        <li class="page-item disabled">
+          <a class="page-link" href="?page={{ objects_list.previous_page_number }}">previous</a>
+        </li>
+        <li class="page-item">
+            <a href="?page={{ objects_list.previous_page_number }}">{{ objects_list.previous_page_number }}</a>
+        </li>
+      {% endif %}
+
+      <li class="page-item active">
+        <a class="page-link" href="#">{{ objects_list.number }} <span class="sr-only">(current)</span></a>
+          <!-- Page {{ objects_list.number }} of {{ objects_list.paginator.num_pages }}. -->
+      </li>
+
+      {% if objects_list.has_next %}
+      <li class="page-item">
+          <a href="?page={{ objects_list.next_page_number }}">{{ objects_list.next_page_number }}</a>
+      </li>
+      <li class="page-item">
+          <a href="?page={{ objects_list.next_page_number }}">next</a>
+       </li>
+       <li class="page-item">
+          <a href="?page={{ objects_list.paginator.num_pages }}">last &raquo;</a>
+        </li>
+      {% endif %}
+  </div>
+</nav>
+<!-- end pagination -->
+
 {%endblock body%}

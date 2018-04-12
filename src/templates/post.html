@@ -9,7 +9,7 @@
 {%block body%}
 <div class="">
   <p id="flag">{{from}}</p>
-  <form class="" action="" method="post"> {%csrf_token%}
+  <form class="" action="" method="post" enctype="multipart/form-data"> {%csrf_token%}
     {{form.as_p}}
     <button type="submit" id="sub_form">Submit</button>
   </form>
