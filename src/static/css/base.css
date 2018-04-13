@@ -1,3 +1,4 @@
+/*background image css*/
 body, html {
   height: 100%;
   margin: 0;
@@ -17,4 +18,54 @@ body, html {
 .inner{
     height: 100%;
     background: rgba(0,0,0,.4);
+}
+/*navbar css*/
+.navbar{
+  border-radius: 0px;
+}
+.navbar-default{
+  background: none;
+  border: none;
+  padding-top: 2%;
+  padding-left: 7%;
+  padding-right: 7%;
+}
+.navbar-default .navbar-toggle {
+    border-color: #dddddd1c;
+}
+.navbar-default .navbar-collapse{
+  border-color: rgba(255, 255, 255, 0);
+}
+#bs-example-navbar-collapse-1.navbar-collapse.collapse.in {
+    border-color: #e7e7e700;
+    box-shadow: none;
+}
+#bs-example-navbar-collapse-1.navbar-collapse.collapse{
+border-top: none;
+box-shadow: none;
+}
+
+.navbar-default .navbar-brand{
+  color: #fff;
+  font-size: 20px;
+  text-shadow:none;
+}
+.navbar-default .navbar-nav .nav-a{
+  color:#909090;
+  text-shadow:none;
+}
+.navbar-default .navbar-nav .nav-a:hover{
+  color:white;
+  font-size: 18px;
+}
+.nav-side-btn{
+  background-color: rgba(255, 255, 255, 0);
+  border-color: rgba(255, 249, 255, 0);
+}
+.nav-side-btn:hover{
+
+}
+.nav-side-btn-img{
+  width: 60%;
+  /*background-image: url("{% static 'image/chevron-right.png' %}");*/
 }
