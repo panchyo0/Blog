@@ -6,10 +6,10 @@ body, html {
 
 .bg {
   /* The image used */
-
+  background-image: url(/static/image/start-dusk-1500x1000.jpg);
   /* Full height */
   height: 100%;
-
+  width: 100%;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
@@ -41,8 +41,8 @@ body, html {
     box-shadow: none;
 }
 #bs-example-navbar-collapse-1.navbar-collapse.collapse{
-border-top: none;
-box-shadow: none;
+  border-top: none;
+  box-shadow: none;
 }
 
 .navbar-default .navbar-brand{
@@ -62,10 +62,33 @@ box-shadow: none;
   background-color: rgba(255, 255, 255, 0);
   border-color: rgba(255, 249, 255, 0);
 }
-.nav-side-btn:hover{
-
+.side-btn .nav-side-btn:hover{
+  padding-left: 10px;
 }
+
 .nav-side-btn-img{
-  width: 60%;
+  width: 15px;
+  height: 15px;
+  margin-left: 3%;
   /*background-image: url("{% static 'image/chevron-right.png' %}");*/
 }
+
+/*side bar*/
+.wrapper {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar.active {
+    margin-left:0px;
+}
+
+#sidebar {
+    min-width: 20%;
+    max-width: 20%;
+    /*min-height: 100vh;*/
+    margin-left: -20%;
+}
+
+/*end side bar*/
