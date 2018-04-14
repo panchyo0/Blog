@@ -19,25 +19,25 @@
     <div class="wrapper">
       <nav id="sidebar">
         <!-- Sidebar Header -->
-        <div class="sidebar-header">
-            <h3>Collapsible Sidebar</h3>
+        <div class="sidebar-form">
+          <form class="navbar-form navbar-left">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <!-- <button type="submit" class="btn btn-default">Submit</button> -->
+          </form>
         </div>
-        <!-- Sidebar Links -->
-        <ul class="list-unstyled components">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
+        <div class="">
+          <h3>Recent Post</h3>
+          <!-- Sidebar Links -->
+          <ul class="list-unstyled components">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
 
-            <li><!-- Link with dropdown items -->
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
-                </ul>
-
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
       </nav>
     <div class="bg">
       <div class="inner">
@@ -83,14 +83,5 @@
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-  <script type="text/javascript">
-  $(document).ready(function () {
-
-  $('#sidebarCollapse').on('click', function () {
-      $('#sidebar').toggleClass('active');
-  });
-
-});
-  </script>
+  <script src="{% static 'js/base.js' %}"></script>
 </html>
