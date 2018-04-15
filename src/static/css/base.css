@@ -91,7 +91,15 @@ body, html {
     min-height: 100vh;
     margin-left: -20%;
 }
-
+.sidebar-footer{
+/*position: fixed;*/
+left: 0;
+bottom: 0;
+width: 100%;
+/*background-color: red;*/
+color:  rgba(255, 255, 255, 0.2);
+text-align:center;
+}
 /*end side bar*/
 
 /*side bar search*/
@@ -100,12 +108,50 @@ body, html {
   border: 1px solid rgba(204, 204, 204, 0);
   border-radius: 25px;
   color: #e8e8e8;
+  margin-top: 10%;
+}
+#search-result{
+  width: 100%;
+  overflow-y:auto;
+  height:85%;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #eeeeee2e;
 }
 /*end side bar search*/
 /*side bar text*/
-.top-text{
-  font-size: 24px;
+.sidebar-text-styly{
   color: white;
   margin-left: 10%;
 }
 /*end side text*/
+
+/*intro*/
+.intro-text{
+margin-top: 10%;
+margin-left: 10%;
+color: white;
+}
+
+#intro-title{
+  font-size: 47px;
+}
+
+#intro-text{
+  width: 30%;
+  font-size: 16px;
+  color: #e8e8e8bf;
+}
+.play-btn{
+    margin-top: 10px;
+
+}
+#play{
+  width: 70px;
+  opacity: 0.8;
+}
+/*end intor*/

@@ -22,26 +22,19 @@
         <div class="sidebar-form">
           <form class="navbar-form navbar-left">
             <div class="form-group">
-              <input type="text" class="form-control" id="search" placeholder="Search">
+              <input type="text" class="form-control" style="width: 100%;" id="search" placeholder="Search">
             </div>
             <!-- <button type="submit" class="btn btn-default">Submit</button> -->
           </form>
         </div>
-        <div class="" id="p">
-          <h3 class="top-text">Recent Post</h3>
           <!-- Sidebar Links -->
-          <p id="t">
-          {%block sideBarSearch%}
-          {%endblock sideBarSearch%}
-          </p>
-          <ul class="list-unstyled components">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-
-              <li><a href="#">Portfolio</a></li>
-              <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
+          <div id="search-result">
+            {%block sideBarSearch%}
+            {%endblock sideBarSearch%}
+          </div>
+          <div class="sidebar-footer">
+            <p>@2018 Panchy</p>
+          </div>
       </nav>
     <div class="bg">
       <div class="inner">
@@ -73,12 +66,25 @@
           </div>
         </nav>
 
+        <!--intro  -->
+        <div class="intro-text">
+          <h1 id="intro-title">Developer</h1>
+          <hr style="width: 30%;float: left;">
+          <br>
+          <p id="intro-text">Experienced data driving web application developer, who loves agile development and newest technologies. With 1+ years of experience in Android and web application. Also having background knowledge on machine learning and game AI.</p>
+          <div class="play-btn">
+            <a href="https://github.com/panchyo0" type="button" name="button">
+              <img id="play" src="{% static 'image/github.png' %}" alt="">
+            </a>
+          </div>
+        </div>
+        <!--end intro  -->
+
       </div>
     </div>
   </div>
     <div class="container">
-      {%block body%}
-      {%endblock body%}
+
     </div>
   </body>
   {%block jsAfterDOM%}

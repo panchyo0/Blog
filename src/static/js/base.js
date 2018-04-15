@@ -16,9 +16,13 @@ $('#sidebarCollapse').bind('click',function(){
     }
 });
 
+$('#play').bind('click',function(){
+  alert('Go to github page');
 });
 
-//ajax for search 
+});
+
+//ajax for search
 $(function() {
   $('#search').keyup(function() {
 
@@ -36,8 +40,8 @@ $(function() {
 });
 function searchSuccess(response)
 {
-  $('#t').html(response)
+  $('#search-result').html(response)
   //append will save old value
   // var parent = $("#p");
-  // parent.append($(i));
+  // parent.append($(response));
 }

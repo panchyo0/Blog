@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #index page URL Rooter
     url(r'^index/',include('article.urls',namespace='article')),
-    url(r'^$',include('article.urls',namespace='article')),
+    url(r'^',include('article.urls')),
 ]
 
 # separate django static and our owns, gether them by run commind

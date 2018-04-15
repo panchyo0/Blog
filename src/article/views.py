@@ -100,4 +100,8 @@ def searchResult(request):
             statuss = Article.objects.filter(Content__contains = search_by)
         else:
             statuss = []
-        return render(request, 'sideBarSearch.html', {'statuss':statuss})
+        context={
+            'statuss':statuss,
+            'searchText':search_by
+        }
+        return render(request, 'sideBarSearch.html', context)
