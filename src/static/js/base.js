@@ -28,7 +28,7 @@ $(function() {
 
     $.ajax({
         type: "GET",
-        url: "",
+        url: "ajax",
         data: {
             'search_by' : $('#search').val(),
             'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()

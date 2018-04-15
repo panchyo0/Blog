@@ -36,54 +36,51 @@
             <p>@2018 Panchy</p>
           </div>
       </nav>
-    <div class="bg">
-      <div class="inner">
-        <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">PANCHY</a>
+      <div class="bg">
+        <div class="inner">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">PANCHY</a>
+              </div>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a class="nav-a" href="{% url 'article:articleList' %}">HOME</a></li>
+                  <li><a class="nav-a" href="#">POST</a></li>
+                  <li><a class="nav-a" href="mailto:qpang@ualberta.ca?Subject=Hello">Email</a></li>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+            <div class="side-btn" style="display:inline">
+              <a type="button" class="nav-side-btn" id="sidebarCollapse" >
+                <img class="nav-side-btn-img" src="{% static 'image/chevron-right-d.png' %}" alt="">
+              </a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right">
-                <li><a class="nav-a" href="#">HOME</a></li>
-                <li><a class="nav-a" href="#">POST</a></li>
-                <li><a class="nav-a" href="mailto:qpang@ualberta.ca?Subject=Hello">Email</a></li>
-              </ul>
-            </div><!-- /.navbar-collapse -->
-          </div><!-- /.container-fluid -->
-          <div class="side-btn" style="display:inline">
-            <a type="button" class="nav-side-btn" id="sidebarCollapse" >
-              <img class="nav-side-btn-img" src="{% static 'image/chevron-right-d.png' %}" alt="">
-            </a>
+          </nav>
+          {%block intro%}
+          <div class="intro-text">
+            <h1 id="intro-title">Developer</h1>
+            <hr style="width: 30%;float: left;">
+            <br>
+            <p id="intro-text">Experienced data driving web application developer, who loves agile development and newest technologies. With 1+ years of experience in Android and web application. Also having background knowledge on machine learning and game AI.</p>
+            <div class="play-btn">
+              <a href="https://github.com/panchyo0" type="button" name="button">
+                <img id="play" src="{% static 'image/github.png' %}" alt="">
+              </a>
+            </div>
           </div>
-        </nav>
-        {%block intro%}
-        <div class="intro-text">
-          <h1 id="intro-title">Developer</h1>
-          <hr style="width: 30%;float: left;">
-          <br>
-          <p id="intro-text">Experienced data driving web application developer, who loves agile development and newest technologies. With 1+ years of experience in Android and web application. Also having background knowledge on machine learning and game AI.</p>
-          <div class="play-btn">
-            <a href="https://github.com/panchyo0" type="button" name="button">
-              <img id="play" src="{% static 'image/github.png' %}" alt="">
-            </a>
-          </div>
+          {%endblock intro%}
         </div>
-        {%endblock intro%}
       </div>
-      <!--end inner  -->
-    </div>
-    <!--end bg  -->
-  </div>
-  <!--end wrapper  -->
+    </div><!--end wrapper  -->
     <div class="container">
       {%block body%}
       {%endblock body%}
