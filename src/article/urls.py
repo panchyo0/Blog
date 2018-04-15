@@ -6,6 +6,7 @@ from .views import(
         deleteArticle,
         updateArticle,
         createArticle,
+        searchResult,
         )
 """
 URL rooter for artical which include List, detail, update and create.
@@ -17,4 +18,5 @@ urlpatterns = [
     url(r'^(?P<pk>\d+)/delete/$',deleteArticle,name="delete"),
     url(r'^(?P<pk>\d+)/edit/$',updateArticle,name="edit"),
     url(r'^create/$',createArticle),
+    url(r'^ajax/$',searchResult),
 ]

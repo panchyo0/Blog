@@ -102,3 +102,10 @@ body, html {
   color: #e8e8e8;
 }
 /*end side bar search*/
+/*side bar text*/
+.top-text{
+  font-size: 24px;
+  color: white;
+  margin-left: 10%;
+}
+/*end side text*/

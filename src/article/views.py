@@ -88,3 +88,16 @@ def updateArticle(request,pk):
         "from":"Edit",
     }
     return render(request,"post.html",context)
+
+"""
+Ajax search result
+"""
+def searchResult(request):
+    if request.method=='GET':
+        search_by=request.GET['search_by']
+        if search_by is not None and search_by != u"":
+            search_by=request.GET['search_by']
+            statuss = Article.objects.filter(Content__contains = search_by)
+        else:
+            statuss = []
+        return render(request, 'sideBarSearch.html', {'statuss':statuss})
