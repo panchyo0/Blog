@@ -29,6 +29,7 @@ body, html {
   padding-top: 2%;
   padding-left: 7%;
   padding-right: 7%;
+  box-shadow: none;
 }
 .navbar-default .navbar-toggle {
     border-color: #dddddd1c;

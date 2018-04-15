@@ -9,6 +9,14 @@
 {%endblock css%}
 
 {%block body%}
+  {%block intro%}
+  {%endblock intro%}
+  <style media="screen">
+    .bg{
+        /* The image used */
+        background-image: url({{objects.Image.url}});
+    }
+  </style>
 <div class="container">
   <p>{{objects.Title}}</p>
   {%if not objects.Publish%}

@@ -55,7 +55,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li><a class="nav-a" href="#">HOME</a></li>
                 <li><a class="nav-a" href="#">POST</a></li>
-                <li><a class="nav-a" href="#">CONTACT</a></li>
+                <li><a class="nav-a" href="mailto:qpang@ualberta.ca?Subject=Hello">Email</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
@@ -65,8 +65,7 @@
             </a>
           </div>
         </nav>
-
-        <!--intro  -->
+        {%block intro%}
         <div class="intro-text">
           <h1 id="intro-title">Developer</h1>
           <hr style="width: 30%;float: left;">
@@ -78,13 +77,16 @@
             </a>
           </div>
         </div>
-        <!--end intro  -->
-
+        {%endblock intro%}
       </div>
+      <!--end inner  -->
     </div>
+    <!--end bg  -->
   </div>
+  <!--end wrapper  -->
     <div class="container">
-
+      {%block body%}
+      {%endblock body%}
     </div>
   </body>
   {%block jsAfterDOM%}
