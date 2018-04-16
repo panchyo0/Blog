@@ -18,6 +18,8 @@ body, html {
 .inner{
     height: 100%;
     background: rgba(0,0,0,.4);
+    position: absolute;
+    top:0;
 }
 /*navbar css*/
 .navbar{
@@ -30,6 +32,12 @@ body, html {
   padding-left: 7%;
   padding-right: 7%;
   box-shadow: none;
+  /*position: fixed;*/
+  width: 100%;
+  top: 0;
+}
+.navbar-scroll{
+  position: fixed;
 }
 .navbar-default .navbar-toggle {
     border-color: #dddddd1c;
@@ -91,12 +99,14 @@ body, html {
     max-width: 20%;
     min-height: 100vh;
     margin-left: -20%;
+    position: fixed;
 }
 .sidebar-footer{
 /*position: fixed;*/
 left: 0;
 bottom: 0;
 width: 100%;
+position: absolute;
 /*background-color: red;*/
 color:  rgba(255, 255, 255, 0.2);
 text-align:center;
@@ -115,6 +125,8 @@ text-align:center;
   width: 100%;
   overflow-y:auto;
   height:85%;
+  position: absolute;
+  top: 10%;
 }
 
 hr {
@@ -127,7 +139,15 @@ hr {
 /*side bar text*/
 .sidebar-text-styly{
   color: white;
-  margin-left: 10%;
+  margin-left: 5px;
+}
+.inline{
+  display:flex;
+  margin-left: 5px;
+}
+.search-img{
+  width: 20px;
+  height: 20px;
 }
 /*end side text*/
 

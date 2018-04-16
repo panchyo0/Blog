@@ -7,14 +7,31 @@ body, html {
 
   /* Full height */
   height: 65%;
-
+  width: 100%;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .inner{
-    height: 100%;
+    height: 65%;
+    width: 100%;
     background: rgba(0,0,0,.4);
+    position: absolute;
+    top:0;
 }
 /*end nav*/
+
+/*intro*/
+.intro-detail{
+  color: #ffffffe8;
+  margin-top: 7%;
+  text-align: center;
+}
+
+#time-auth{
+  color: #e8e8e878;
+  margin-top: 5%;
+}
+/*end intro*/

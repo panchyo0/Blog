@@ -1,4 +1,5 @@
 {%extends 'base.html' %}
+{% load tz %}
 
 {% load static %}
 
@@ -8,9 +9,17 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}">
 {%endblock css%}
 
+{%block intro%}
+<div class="intro-detail">
+    <h1 >{{objects.Title}}</h1>
+    <h4 id='time-auth'>{{objects.Build|localtime|date:'M d, Y'}} by {{objects.User}}</h4>
+</div>
+<div class="">
+    <p>{{objects.Content}}</p>
+</div>
+{%endblock intro%}
+
 {%block body%}
-  {%block intro%}
-  {%endblock intro%}
   <style media="screen">
     .bg{
         /* The image used */

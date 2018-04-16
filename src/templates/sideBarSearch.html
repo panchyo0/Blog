@@ -3,10 +3,13 @@
   <p class="sidebar-text-styly">Found "{{searchText}}" In:</p>
   <hr>
   {%for article in statuss%}
-  <!-- <img src="{{article.Image.url}}" alt="" class="img-responsive"> -->
+  <div class="inline">
+    <!-- <img src="{{article.Image.url}}" class="img-responsive" alt=""> -->
+    <img src="/static/image/search.png" alt="" class="img-responsive search-img">
     <a href="{%url "article:detail" pk=article.Id %}" class="sidebar-text-styly">
       {{article.Title}}
     </a>
+  </div>
     <hr>
   {%endfor%}
 {%else%}

@@ -4,15 +4,27 @@ $('#sidebarCollapse').on('click', function () {
     $('#sidebar').toggleClass('active');
 });
 
-// change image of side bar
+// make navbar's position fixed when scroll
+$(window).bind('scroll',function(){
+    var navbar=$('.navbar-default');
+    if ($(window).scrollTop()>50) {
+      navbar.css({"position":"fixed"});
+    } else {
+      navbar.css({"position":"initial"});
+    }
+
+});
+// change image of side bar and add css
 $('#sidebarCollapse').bind('click',function(){
     var className=$('#sidebar').attr('class');
     var navSideBtnImg=$('.nav-side-btn-img');
+    var bg=$('.bg');
     if (className=='active') {
       navSideBtnImg.attr('src','/static/image/chevron-left-d.png');
+      bg.css({"margin-left":"20%"})
     } else {
       navSideBtnImg.attr('src','/static/image/chevron-right-d.png');
-
+      bg.css({"margin-left":"0"})
     }
 });
 

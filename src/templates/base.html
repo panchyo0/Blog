@@ -38,7 +38,7 @@
       </nav>
       <div class="bg">
         <div class="inner">
-          <nav class="navbar navbar-default">
+          <nav class="navbar navbar-default" id="navbar">
             <div class="container-fluid">
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
@@ -78,13 +78,14 @@
             </div>
           </div>
           {%endblock intro%}
+        </div><!--end inner  -->
+        <div class="container" style="position: absolute;top: 100vh;">
+          {%block body%}
+          {%endblock body%}
         </div>
-      </div>
+      </div><!--end bg  -->
     </div><!--end wrapper  -->
-    <div class="container">
-      {%block body%}
-      {%endblock body%}
-    </div>
+
   </body>
   {%block jsAfterDOM%}
   {%endblock jsAfterDOM%}
