@@ -35,9 +35,11 @@ body, html {
   /*position: fixed;*/
   width: 100%;
   top: 0;
+  z-index: 100;
 }
 .navbar-scroll{
   position: fixed;
+  background: black;
 }
 .navbar-default .navbar-toggle {
     border-color: #dddddd1c;

@@ -7,10 +7,12 @@ $('#sidebarCollapse').on('click', function () {
 // make navbar's position fixed when scroll
 $(window).bind('scroll',function(){
     var navbar=$('.navbar-default');
-    if ($(window).scrollTop()>50) {
-      navbar.css({"position":"fixed"});
+    if ($(window).scrollTop()>0.8*$(window).height()) {
+      // navbar.css({"position":"fixed"});
+      navbar.addClass('navbar-scroll');
     } else {
-      navbar.css({"position":"initial"});
+      // navbar.css({"position":"initial"});
+      navbar.removeClass('navbar-scroll');
     }
 
 });
