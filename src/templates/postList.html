@@ -7,6 +7,28 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/postList.css' %}">
 {%endblock css%}
 
+{%block sideBarSearch%}
+<div class="">
+  {%for obj in objects_list|slice:":3"%}
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="{%url "article:detail" pk=obj.Id %}">
+        <!-- <img src="/w3images/lights.jpg" alt="Lights" style="width:100%"> -->
+        {%if obj.Image%}
+          <img src="{{obj.Image.url}}" class="img-responsive">
+        {%endif%}
+        <div class="caption post-text">
+          <p class="time-color">{{obj.Build|localtime|date:'M d, Y'}}</p>
+          <h3>{{obj.Title}}</h3>
+          <!-- <p>{{obj.Content|truncatechars:30}}</p> -->
+        </div>
+      </a>
+    </div>
+  </div>
+  {%endfor%}
+</div>
+{%endblock sideBarSearch%}
+
 {%block body%}
 <div class="row">
   {%for obj in objects_list|slice:":3"%}
