@@ -178,3 +178,10 @@ color: white;
   opacity: 0.8;
 }
 /*end intor*/
+
+/*body*/
+.star-body{
+  position: absolute;
+  top: 100vh;
+}
+/*end body*/

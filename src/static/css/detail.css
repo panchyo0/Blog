@@ -35,3 +35,10 @@ body, html {
   margin-top: 5%;
 }
 /*end intro*/
+
+/*body*/
+.star-body{
+  position: absolute;
+  top: 70vh;
+}
+/*end body*/
