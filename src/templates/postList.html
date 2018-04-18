@@ -9,8 +9,10 @@
 
 {%block sideBarSearch%}
 <div class="">
-  {%for obj in objects_list|slice:":3"%}
-  <div class="col-md-4">
+  <h3 class="title">Recent Post</h3>
+  {%for obj in objects_list|slice:":10"%}
+  <!-- <div class="col-md-4"> -->
+  <hr>
     <div class="thumbnail">
       <a href="{%url "article:detail" pk=obj.Id %}">
         <!-- <img src="/w3images/lights.jpg" alt="Lights" style="width:100%"> -->
@@ -19,30 +21,29 @@
         {%endif%}
         <div class="caption post-text">
           <p class="time-color">{{obj.Build|localtime|date:'M d, Y'}}</p>
-          <h3>{{obj.Title}}</h3>
+          <h4>{{obj.Title}}</h4>
           <!-- <p>{{obj.Content|truncatechars:30}}</p> -->
         </div>
       </a>
     </div>
-  </div>
+  <!-- </div> -->
   {%endfor%}
 </div>
 {%endblock sideBarSearch%}
 
 {%block body%}
-<div class="row">
+<!-- <div class="row">
   {%for obj in objects_list|slice:":3"%}
   <div class="col-md-4">
     <div class="thumbnail">
       <a href="{%url "article:detail" pk=obj.Id %}">
-        <!-- <img src="/w3images/lights.jpg" alt="Lights" style="width:100%"> -->
+
         {%if obj.Image%}
           <img src="{{obj.Image.url}}" class="img-responsive">
         {%endif%}
         <div class="caption post-text">
           <p class="time-color">{{obj.Build|localtime|date:'M d, Y'}}</p>
           <h3>{{obj.Title}}</h3>
-          <!-- <p>{{obj.Content|truncatechars:30}}</p> -->
         </div>
       </a>
     </div>
@@ -52,23 +53,21 @@
   <div class="col-md-3">
     <div class="thumbnail">
       <a href="{%url "article:detail" pk=obj.Id %}">
-        <!-- <img src="/w3images/lights.jpg" alt="Lights" style="width:100%"> -->
         {%if obj.Image%}
           <img src="{{obj.Image.url}}" class="img-responsive">
         {%endif%}
         <div class="caption post-text">
           <p class="time-color">{{obj.Build|localtime|date:'M d, Y'}}</p>
           <p>{{obj.Title}}</p>
-          <!-- <p>{{obj.Content|truncatechars:30}}</p> -->
         </div>
       </a>
     </div>
   </div>
   {%endfor%}
-</div>
+</div> -->
 
 <!-- start pagination -->
-<nav aria-label="...">
+<!-- <nav aria-label="...">
   <div class="pagination">
       {% if objects_list.has_previous %}
         <li class="page-item"><a href="?page=1">&laquo; first</a></li>
@@ -82,7 +81,6 @@
 
       <li class="page-item active">
         <a class="page-link" href="#">{{ objects_list.number }} <span class="sr-only">(current)</span></a>
-          <!-- Page {{ objects_list.number }} of {{ objects_list.paginator.num_pages }}. -->
       </li>
 
       {% if objects_list.has_next %}
@@ -97,7 +95,7 @@
         </li>
       {% endif %}
   </div>
-</nav>
+</nav> -->
 <!-- end pagination -->
 
 {%endblock body%}
