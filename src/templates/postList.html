@@ -14,21 +14,26 @@
   <!-- <div class="col-md-4"> -->
   <hr>
     <div class="thumbnail">
+
       <a href="{%url "article:detail" pk=obj.Id %}">
         <!-- <img src="/w3images/lights.jpg" alt="Lights" style="width:100%"> -->
         {%if obj.Image%}
+        <div class="">
           <img src="{{obj.Image.url}}" class="img-responsive">
+          <div class="no-shadow">
+          </div>
+        </div>
         {%endif%}
         <div class="caption post-text">
           <p class="time-color">{{obj.Build|localtime|date:'M d, Y'}}</p>
           <h4>{{obj.Title}}</h4>
-          <!-- <p>{{obj.Content|truncatechars:30}}</p> -->
+          <p id="post-content">{{obj.Content|truncatechars:70}}</p>
         </div>
       </a>
-    </div>
-  <!-- </div> -->
+  </div>
   {%endfor%}
 </div>
+
 {%endblock sideBarSearch%}
 
 {%block body%}
@@ -99,3 +104,6 @@
 <!-- end pagination -->
 
 {%endblock body%}
+{%block jsAfterDOM%}
+<script src="{% static 'js/postList.js' %}"></script>
+{%endblock jsAfterDOM%}
