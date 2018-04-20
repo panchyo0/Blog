@@ -11,6 +11,18 @@ from .forms import PostForm
 """
 query all artical which published and paginator
 """
+def allArticle(request):
+    if not request.user.is_staff or not request.user.is_superuser:
+        quearyset=Article.objects.filter(Publish=True).order_by("-UpdateTime")
+    else:
+        quearyset=Article.objects.all()
+    context={
+    	# "form":form,
+        # "title":title,
+        "objects_list":contacts,
+    }
+    return render(request,"article.html",context)
+
 def listArticle(request):
     if not request.user.is_staff or not request.user.is_superuser:
         quearyset=Article.objects.filter(Publish=True).order_by("-UpdateTime")
