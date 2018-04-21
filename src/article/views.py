@@ -19,7 +19,7 @@ def allArticle(request):
     context={
     	# "form":form,
         # "title":title,
-        "objects_list":contacts,
+        "objects_list":quearyset,
     }
     return render(request,"article.html",context)
 

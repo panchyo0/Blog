@@ -1,13 +1,29 @@
 <!-- <div class="container news-contaioner"> -->
+<style media="screen">
+  .news-contaioner{
+  margin-top: 80px;
+}
+.news-h1{
+  font-size: 18px;
+}
+.new-font-color{
+  color: #777;
+}
+.news-list{
+  float: right;
+}
+</style>
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 news-list">
+      <!-- <div class="col-lg-4 news-list">
         <div class="well">
           <h4 class="news-h1">Recent:</h4>
+            {% for obj in objects_list%}
             <ul *ngFor="let item of news" >
-              <p><a href="">{{item.title}}</a></p>
-              <p>{{item.date}}</p>
+              <p><a href="">{{obj.Title}}</a></p>
+              <p>{{obj.UpdateTime}}</p>
             </ul>
+            {%endfor%}
           <h4 class="news-h1">By Year:</h4>
           <ul>
             <p><a href="">2017</a></p>
@@ -15,87 +31,24 @@
             <p><a href="">2015</a></p>
           </ul>
         </div>
-      </div>
-        <div class="col-lg-8" *ngFor="let item of news">
-            <h1 class="news-h1"><a href="{{item.title}}">{{item.title}}</a></h1>
-            <p class="new-font-color">by <a href="{{item.auth}}">{{item.auth}}</a></p>
-            <p><img src="assets/images/clock.png" alt=""> {{item.date}}</p>
-            <p class="new-font-color">{{item.description}}</p>
-            <a class="news-h1" href="{{item.slug}}">Read More</a>
+      </div> -->
+      {%for obj in objects_list%}
+        <div class="col-lg-8">
+            <h1 class="news-h1"><a href="{{obj.Title}}">{{obj.Title}}</a></h1>
+            <p class="new-font-color">by <a href="#">{{obj.User}}</a></p>
+            <p><img src="assets/images/clock.png" alt=""> {{obj.UpdateTime}}</p>
+            <p class="new-font-color">{{obj.Content}}</p>
+            <a class="news-h1" href="#">Read More</a>
   	        <p class="new-font-color">
               Tags:
-              <a href="" *ngFor="let tag of item.Tag"><span class="badge badge-info">{{tag}}</span> </a>
+              <!-- <a href="" *ngFor="let tag of item.Tag"><span class="badge badge-info">{{tag}}</span> </a> -->
             <hr>
         </div>
+        {%endfor%}
       </div>
     </div>
-</div>
+<!-- </div> -->
 {%block body%}
-<!-- <div class="row">
-  {%for obj in objects_list|slice:":3"%}
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <a href="{%url "article:detail" pk=obj.Id %}">
-
-        {%if obj.Image%}
-          <img src="{{obj.Image.url}}" class="img-responsive">
-        {%endif%}
-        <div class="caption post-text">
-          <p class="time-color">{{obj.Build|localtime|date:'M d, Y'}}</p>
-          <h3>{{obj.Title}}</h3>
-        </div>
-      </a>
-    </div>
-  </div>
-  {%endfor%}
-  {%for obj in objects_list|slice:"3:7"%}
-  <div class="col-md-3">
-    <div class="thumbnail">
-      <a href="{%url "article:detail" pk=obj.Id %}">
-        {%if obj.Image%}
-          <img src="{{obj.Image.url}}" class="img-responsive">
-        {%endif%}
-        <div class="caption post-text">
-          <p class="time-color">{{obj.Build|localtime|date:'M d, Y'}}</p>
-          <p>{{obj.Title}}</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  {%endfor%}
-</div> -->
-
-<!-- start pagination -->
-<!-- <nav aria-label="...">
-  <div class="pagination">
-      {% if objects_list.has_previous %}
-        <li class="page-item"><a href="?page=1">&laquo; first</a></li>
-        <li class="page-item disabled">
-          <a class="page-link" href="?page={{ objects_list.previous_page_number }}">previous</a>
-        </li>
-        <li class="page-item">
-            <a href="?page={{ objects_list.previous_page_number }}">{{ objects_list.previous_page_number }}</a>
-        </li>
-      {% endif %}
-
-      <li class="page-item active">
-        <a class="page-link" href="#">{{ objects_list.number }} <span class="sr-only">(current)</span></a>
-      </li>
-
-      {% if objects_list.has_next %}
-      <li class="page-item">
-          <a href="?page={{ objects_list.next_page_number }}">{{ objects_list.next_page_number }}</a>
-      </li>
-      <li class="page-item">
-          <a href="?page={{ objects_list.next_page_number }}">next</a>
-       </li>
-       <li class="page-item">
-          <a href="?page={{ objects_list.paginator.num_pages }}">last &raquo;</a>
-        </li>
-      {% endif %}
-  </div>
-</nav> -->
-<!-- end pagination -->
 
 {%endblock body%}
 {%block jsAfterDOM%}
