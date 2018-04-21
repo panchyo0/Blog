@@ -6,14 +6,30 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}">
 {%endblock css%}
 
+{%block intro%}
+<div class="intro row">
+  <div class="col-lg-6">
+    <p id="flag">{{from}}</p>
+    <form class="" action="" method="post" enctype="multipart/form-data"> {%csrf_token%}
+      {{form.as_p}}
+      <button type="submit" id="sub_form" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+
+  <div class="col-lg-6">
+    <p>at here</p>
+  </div>
+</div>
+{%endblock intro%}
+
 {%block body%}
-<div class="">
+<!-- <div class="">
   <p id="flag">{{from}}</p>
   <form class="" action="" method="post" enctype="multipart/form-data"> {%csrf_token%}
     {{form.as_p}}
     <button type="submit" id="sub_form">Submit</button>
   </form>
-</div>
+</div> -->
 {%endblock body%}
 {%block jsAfterDOM%}
 <script src="{% static 'js/post.js' %}"></script>

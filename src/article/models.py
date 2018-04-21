@@ -27,8 +27,8 @@ class Article(models.Model):
     Title=models.CharField(max_length=1000,blank = False)
 
     Image=models.ImageField(upload_to=upload_location,
-                            null=True,
-                            blank=True,
+                            null=False,
+                            blank=False,
                             width_field='width_field',
                             height_field='height_field',)
     height_field=models.IntegerField(default=0)

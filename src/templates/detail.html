@@ -28,7 +28,7 @@
   {%if not objects.Publish%}
   <p>Draft</p>
   {%endif%}
-  <p>{{objects.Content}}</p>
+  <p>{{objects.Content|safe}}</p>
   <p>{{objects.updateTime}}</p>
   {%if user.is_authenticated%}
     <a href="{%url "article:delete" pk=objects.Id %}" class="btn btn-default">Delete</a>
