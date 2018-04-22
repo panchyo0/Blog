@@ -1,23 +1,27 @@
 {%extends 'base.html' %}
-{% load static %}
+<!-- {% load static %} -->
 
 {%block pagetitle%}{{from}}{%endblock pagetitle%}
 {%block css%}
 <link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}">
+{{ form.media }}
 {%endblock css%}
 
+
+
 {%block intro%}
+
 <div class="intro row">
   <div class="col-lg-6">
     <p id="flag">{{from}}</p>
-    <form class="" action="" method="post" enctype="multipart/form-data"> {%csrf_token%}
+    <form method="post" enctype="multipart/form-data"> {%csrf_token%}
       {{form.as_p}}
       <button type="submit" id="sub_form" class="btn btn-default">Submit</button>
     </form>
   </div>
 
   <div class="col-lg-6">
-    <p>at here</p>
+    {{form.media}}
   </div>
 </div>
 {%endblock intro%}
@@ -32,5 +36,6 @@
 </div> -->
 {%endblock body%}
 {%block jsAfterDOM%}
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.19/marked.min.js"></script> -->
 <script src="{% static 'js/post.js' %}"></script>
 {%endblock jsAfterDOM%}

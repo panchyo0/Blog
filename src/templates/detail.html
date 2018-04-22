@@ -28,8 +28,8 @@
   {%if not objects.Publish%}
   <p>Draft</p>
   {%endif%}
-  <p>{{objects.Content|safe}}</p>
-  <p>{{objects.updateTime}}</p>
+  <p class="content-markdown">{{objects.Content}}</p>
+  <!-- <p>{{objects.updateTime}}</p> -->
   {%if user.is_authenticated%}
     <a href="{%url "article:delete" pk=objects.Id %}" class="btn btn-default">Delete</a>
   {%endif%}
@@ -38,3 +38,19 @@
   {%endif%} -->
 </div>
 {%endblock body%}
+
+{%block jsAfterDOM%}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.19/marked.min.js"></script>
+<!-- <script src="{% static 'js/post.js' %}"></script> -->
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.content-markdown').each(function(){
+    var content=$(this).text();
+    // console.log(content);
+    var markdownContent=marked(content);
+    // console.log(markdownContent);
+    $(this).html(markdownContent);
+  });
+});
+</script>
+{%endblock jsAfterDOM%}
