@@ -5,7 +5,7 @@
 <li>Pillow</li>
 <li>bootstrap 3</li>
 <li>Jquery</li>
-<li>django-pagedown</li>
+<li><a href="https://github.com/timmyomahony/django-pagedown">django-pagedown</a></li>
 <li><a href="https://cdnjs.com/libraries/marked">markdown</a></li>
 
 
