@@ -1,4 +1,19 @@
+{%extends 'base.html' %}
+{% load tz %}
 
+{% load static %}
+
+{%block pagetitle%}Way to Master| {{block.super}}{%endblock pagetitle%}
+
+{%block css%}
+<link rel="stylesheet" type="text/css" href="#">
+{%endblock css%}
+
+{%block intro%}
+<div class="">
+
+</div>
+{%endblock intro%}
 
 {%block body%}
 <!-- <div class="container news-contaioner"> -->
@@ -40,7 +55,7 @@
             <h1 class="news-h1"><a href="{{obj.Title}}">{{obj.Title}}</a></h1>
             <p class="new-font-color">by <a href="#">{{obj.User}}</a></p>
             <p><img src="assets/images/clock.png" alt=""> {{obj.UpdateTime}}</p>
-            <p class="new-font-color">{{obj.Content}}</p>
+            <p class="new-font-color content-markdown">{{obj.Content|truncatechars:140}}</p>
             <a class="news-h1" href="#">Read More</a>
   	        <p class="new-font-color">
               Tags:

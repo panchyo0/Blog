@@ -18,8 +18,8 @@ urlpatterns = [
     url(r'^$',listArticle,name = "articleList"),
     url(r'^(?P<pk>\d+)/$',getArticle,name="detail"),
     url(r'^(?P<pk>\d+)/delete/$',deleteArticle,name="delete"),
-    url(r'^(?P<pk>\d+)/edit/$',updateArticle,name="edit"),
-    url(r'^create/$',createArticle),
+    # url(r'^(?P<pk>\d+)/edit/$',updateArticle,name="edit"),
+    # url(r'^create/$',createArticle),
     url(r'^ways/$',allArticle,name="allArticle"),
     # ajax search
     url(r'^ajax/$',searchResultInMain),

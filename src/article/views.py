@@ -44,7 +44,7 @@ def listArticle(request):
     return render(request,"postList.html",context)
 
 """
-post an articals
+post an articals（not use change post artical in admin page）
 """
 def createArticle(request):
     if not request.user.is_staff or not request.user.is_superuser:
@@ -84,7 +84,7 @@ def deleteArticle(request,pk):
     return redirect("article:articleList")
 
 """
-edit artical
+edit artical (not use change, edit artical in admin page）
 """
 def updateArticle(request,pk):
     if not request.user.is_staff or not request.user.is_superuser:

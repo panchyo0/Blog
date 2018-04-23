@@ -40,17 +40,4 @@
 {%endblock body%}
 
 {%block jsAfterDOM%}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.19/marked.min.js"></script>
-<!-- <script src="{% static 'js/post.js' %}"></script> -->
-<script type="text/javascript">
-$(document).ready(function(){
-  $('.content-markdown').each(function(){
-    var content=$(this).text();
-    // console.log(content);
-    var markdownContent=marked(content);
-    // console.log(markdownContent);
-    $(this).html(markdownContent);
-  });
-});
-</script>
 {%endblock jsAfterDOM%}

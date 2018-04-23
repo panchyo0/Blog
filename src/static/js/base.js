@@ -30,8 +30,16 @@ $('#sidebarCollapse').bind('click',function(){
     }
 });
 
+// alert messages show jump to github page
 $('#play').bind('click',function(){
   alert('Go to github page');
+});
+
+// for each content-markdown insert markdown artical to DOM
+$('.content-markdown').each(function(){
+  var content=$(this).text();
+  var markdownContent=marked(content);
+  $(this).html(markdownContent);
 });
 
 });
@@ -52,6 +60,8 @@ $(function() {
     });
 });
 });
+
+// callback function. insert html to DOM
 function searchSuccess(response)
 {
   $('#search-result').html(response)
