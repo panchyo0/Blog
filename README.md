@@ -5,6 +5,9 @@
 <li>Pillow</li>
 <li>bootstrap 3</li>
 <li>Jquery</li>
+<li>django-pagedown</li>
+<li></a href="https://cdnjs.com/libraries/marked">markdown</a></li>
+
 
 <h1>Testing</h1>
 <li>Selenium</li>
