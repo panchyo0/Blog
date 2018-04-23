@@ -3,60 +3,28 @@
 
 {% load static %}
 
-{%block pagetitle%}Way to Master| {{block.super}}{%endblock pagetitle%}
+{%block pagetitle%}{{title}}| {{block.super}}{%endblock pagetitle%}
 
 {%block css%}
-<link rel="stylesheet" type="text/css" href="#">
+<link rel="stylesheet" type="text/css" href="{% static 'css/article.css' %}">
 {%endblock css%}
 
 {%block intro%}
-<div class="">
-
+<div class="intro-detail">
+    <h1 >{{title}}</h1>
 </div>
 {%endblock intro%}
 
 {%block body%}
-<!-- <div class="container news-contaioner"> -->
-<style media="screen">
-  .news-contaioner{
-  margin-top: 80px;
-}
-.news-h1{
-  font-size: 18px;
-}
-.new-font-color{
-  color: #777;
-}
-.news-list{
-  float: right;
-}
-</style>
   <div class="container">
     <div class="row">
-      <!-- <div class="col-lg-4 news-list">
-        <div class="well">
-          <h4 class="news-h1">Recent:</h4>
-            {% for obj in objects_list%}
-            <ul *ngFor="let item of news" >
-              <p><a href="">{{obj.Title}}</a></p>
-              <p>{{obj.UpdateTime}}</p>
-            </ul>
-            {%endfor%}
-          <h4 class="news-h1">By Year:</h4>
-          <ul>
-            <p><a href="">2017</a></p>
-            <p><a href="">2016</a></p>
-            <p><a href="">2015</a></p>
-          </ul>
-        </div>
-      </div> -->
       {%for obj in objects_list%}
         <div class="col-lg-8">
-            <h1 class="news-h1"><a href="{{obj.Title}}">{{obj.Title}}</a></h1>
-            <p class="new-font-color">by <a href="#">{{obj.User}}</a></p>
-            <p><img src="assets/images/clock.png" alt=""> {{obj.UpdateTime}}</p>
+            <h1 class="news-h1"><a href="{%url "article:detail" pk=obj.Id %}">{{obj.Title}}</a></h1>
+            <p class="new-font-color">by {{obj.User}}</p>
+            <p>{{obj.UpdateTime|localtime|date:'M d, Y'}}</p>
             <p class="new-font-color content-markdown">{{obj.Content|truncatechars:140}}</p>
-            <a class="news-h1" href="#">Read More</a>
+            <a class="news-h1" href="{%url "article:detail" pk=obj.Id %}">Read More</a>
   	        <p class="new-font-color">
               Tags:
               <!-- <a href="" *ngFor="let tag of item.Tag"><span class="badge badge-info">{{tag}}</span> </a> -->
@@ -64,9 +32,38 @@
         </div>
         {%endfor%}
       </div>
-    </div>
-<!-- </div> -->
+  </div>
+<!-- start pagination -->
+<nav aria-label="...">
+  <div class="pagination">
+      {% if objects_list.has_previous %}
+        <li class="page-item"><a href="?page=1">&laquo; first</a></li>
+        <li class="page-item disabled">
+          <a class="page-link" href="?page={{ objects_list.previous_page_number }}">previous</a>
+        </li>
+        <li class="page-item">
+            <a href="?page={{ objects_list.previous_page_number }}">{{ objects_list.previous_page_number }}</a>
+        </li>
+      {% endif %}
 
+      <li class="page-item active">
+        <a class="page-link" href="#">{{ objects_list.number }} <span class="sr-only">(current)</span></a>
+      </li>
+
+      {% if objects_list.has_next %}
+      <li class="page-item">
+          <a href="?page={{ objects_list.next_page_number }}">{{ objects_list.next_page_number }}</a>
+      </li>
+      <li class="page-item">
+          <a href="?page={{ objects_list.next_page_number }}">next</a>
+       </li>
+       <li class="page-item">
+          <a href="?page={{ objects_list.paginator.num_pages }}">last &raquo;</a>
+        </li>
+      {% endif %}
+  </div>
+</nav>
+<!-- end pagination -->
 {%endblock body%}
 {%block jsAfterDOM%}
 {%endblock jsAfterDOM%}

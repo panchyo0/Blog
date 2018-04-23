@@ -1,3 +1,4 @@
+//add for current image shadow when hover
 $(document).ready(function(){
   $( ".thumbnail" ).hover(
   function() {

@@ -12,23 +12,13 @@ from .forms import PostForm
 query all artical which published and paginator
 """
 def allArticle(request):
+    title='Way to Master'
+    limit=7
     if not request.user.is_staff or not request.user.is_superuser:
         quearyset=Article.objects.filter(Publish=True).order_by("-UpdateTime")
     else:
         quearyset=Article.objects.all()
-    context={
-    	# "form":form,
-        # "title":title,
-        "objects_list":quearyset,
-    }
-    return render(request,"article.html",context)
-
-def listArticle(request):
-    if not request.user.is_staff or not request.user.is_superuser:
-        quearyset=Article.objects.filter(Publish=True).order_by("-UpdateTime")
-    else:
-        quearyset=Article.objects.all()
-    paginator = Paginator(quearyset, 7) # Show 2 contacts per page
+    paginator = Paginator(quearyset, limit) # Show 2 contacts per page
     page = request.GET.get('page')
     try:
         contacts = paginator.page(page)
@@ -38,8 +28,23 @@ def listArticle(request):
         contacts=paginator.page(paginator.num_pages)
     context={
     	# "form":form,
-        # "title":title,
+        "title":title,
         "objects_list":contacts,
+    }
+    return render(request,"article.html",context)
+
+"""
+query first 7 artical which published and return it to sidebar if not superuser,
+else return all artical.
+"""
+def listArticle(request):
+    limit=7
+    if not request.user.is_staff or not request.user.is_superuser:
+        quearyset=Article.objects.filter(Publish=True).order_by("-UpdateTime")[:limit]
+    else:
+        quearyset=Article.objects.all()
+    context={
+        "objects_list":quearyset,
     }
     return render(request,"postList.html",context)
 
