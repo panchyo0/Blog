@@ -199,4 +199,14 @@ color: white;
     width: 50%;
   }
 }
+
+@media screen and (max-width:820px) {
+  #sidebar {
+      min-width: 50%;
+      max-width: 50%;
+      min-height: 100vh;
+      margin-left: -50%;
+      position: fixed;
+  }
+}
 /*end media*/

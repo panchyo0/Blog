@@ -20,13 +20,20 @@ $(window).bind('scroll',function(){
 $('#sidebarCollapse').bind('click',function(){
     var className=$('#sidebar').attr('class');
     var navSideBtnImg=$('.nav-side-btn-img');
+    var width = window.innerWidth;
     var bg=$('.bg');
     if (className=='active') {
       navSideBtnImg.attr('src','/static/image/chevron-left-d.png');
-      bg.css({"margin-left":"20%"})
+      console.log(width);
+      console.log(width<820);
+      if (width<820){
+        bg.css({"margin-left":"50%"});
+      }else{
+        bg.css({"margin-left":"20%"});
+      }
     } else {
       navSideBtnImg.attr('src','/static/image/chevron-right-d.png');
-      bg.css({"margin-left":"0"})
+      bg.css({"margin-left":"0"});
     }
 });
 
