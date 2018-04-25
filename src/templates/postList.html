@@ -25,9 +25,9 @@
         </div>
         {%endif%}
         <div class="caption post-text">
-          <p class="time-color">{{obj.Build|localtime|date:'M d, Y'}}</p>
-          <h4>{{obj.Title}}</h4>
-          <p class="content-markdown" id="post-content">{{obj.Content|truncatechars:70}}</p>
+          <p class="time-color" id="article-date">{{obj.Build|localtime|date:'M d, Y'}}</p>
+          <h4 id="article-title">{{obj.Title}}</h4>
+          <p class="content-markdown" id="article-content">{{obj.Content|truncatechars:70}}</p>
         </div>
       </a>
   </div>

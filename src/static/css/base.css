@@ -138,7 +138,13 @@ hr {
     border: 0;
     border-top: 1px solid #eeeeee2e;
 }
+
+.navbar-form{
+  /*remove the original box border when window size is small */
+  box-shadow: none;
+}
 /*end side bar search*/
+
 /*side bar text*/
 .sidebar-text-styly{
   color: white;
@@ -186,3 +192,11 @@ color: white;
   top: 100vh;
 }
 /*end body*/
+
+/*set for media screen */
+@media screen and (max-width: 480px) {
+  #intro-text{
+    width: 50%;
+  }
+}
+/*end media*/
