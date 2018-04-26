@@ -28,13 +28,13 @@
   	        <p class="new-font-color">
               Tags:
               <!-- <a href="" *ngFor="let tag of item.Tag"><span class="badge badge-info">{{tag}}</span> </a> -->
-            <hr>
+            <hr style="border-top: 2px solid #00000080;">
         </div>
         {%endfor%}
       </div>
   </div>
 <!-- start pagination -->
-<nav aria-label="...">
+<nav aria-label="..." class="pagenav" style="text-align: center;">
   <div class="pagination">
       {% if objects_list.has_previous %}
         <li class="page-item"><a href="?page=1">&laquo; first</a></li>
