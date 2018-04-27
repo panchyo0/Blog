@@ -123,7 +123,7 @@ def searchResultInDetail(request, pk):
         }
         return render(request, 'sideBarSearch.html', context)
 
-def searchResultInMain(request):
+def searchResult(request):
     if request.method=='GET':
         search_by=request.GET['search_by']
         if search_by is not None and search_by != u"":

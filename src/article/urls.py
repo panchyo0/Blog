@@ -6,9 +6,9 @@ from .views import(
         deleteArticle,
         updateArticle,
         createArticle,
-        searchResultInMain,
+        searchResult,
         searchResultInDetail,
-        allArticle
+        allArticle,
         )
 """
 URL rooter for artical which include List, detail, update and create.
@@ -22,6 +22,7 @@ urlpatterns = [
     # url(r'^create/$',createArticle),
     url(r'^ways/$',allArticle,name="allArticle"),
     # ajax search
-    url(r'^ajax/$',searchResultInMain),
+    url(r'^ajax/$',searchResult),
     url(r'^(?P<pk>\d+)/ajax/$',searchResultInDetail),
+    url(r'^ways/ajax/$',searchResult),
 ]
