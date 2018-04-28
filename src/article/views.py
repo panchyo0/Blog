@@ -109,6 +109,8 @@ def updateArticle(request,pk):
 """
 Ajax search result
 """
+
+
 def searchResultInDetail(request, pk):
     if request.method=='GET':
         search_by=request.GET['search_by']
