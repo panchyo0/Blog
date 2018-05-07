@@ -17,6 +17,13 @@ save image according user
 def upload_location(instance,filename):
     return "%s/%s" %(instance.User,filename)
 
+class Tag(models.Model):
+    """docstring forTag."""
+    Id=models.AutoField(primary_key=True)
+    Tags=models.CharField(max_length=1000,blank = False)
+    def __str__(self):
+        return str(self.Tags)
+
 """
 Not only the models also the method of each model obj
 """
@@ -38,7 +45,7 @@ class Article(models.Model):
     Content=models.TextField()
     UpdateTime=models.DateTimeField(auto_now_add=False,auto_now=True)
     Build=models.DateTimeField(auto_now_add=True,auto_now=False)
-    # Tag = models.ManyToManyField('Tags',through=TagsExercises)
+    Tags = models.ManyToManyField(Tag,through='TagsArticle')
 
     #objects is build in by django, like Article.objects.all()
     objects=PostManager()
@@ -50,3 +57,7 @@ class Article(models.Model):
     #get URL dynamic also can ues URL "article:detail" pk=obj.id
     def get_absolute_url(self):
         return reverse("article:detail",kwargs={"pk":self.Id})
+
+class TagsArticle(models.Model):
+    Article=models.ForeignKey(Article)
+    Tags=models.ForeignKey(Tag)
