@@ -28,6 +28,13 @@
   {%if not objects.Publish%}
   <p>Draft</p>
   {%endif%}
+
+  {%if tags%}
+  <h3>Tags:</h3>
+    {%for tag in tags%}
+    <a>{{tag.Tags}}</a>
+    {%endfor%}
+  {%endif%}
   <p class="content-markdown">{{objects.Content}}</p>
   <!-- <p>{{objects.updateTime}}</p> -->
   {%if user.is_authenticated%}

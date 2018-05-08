@@ -18,16 +18,22 @@
 {%block body%}
   <div class="container">
     <div class="row">
-      {%for obj in objects_list%}
+      {%for row in rows%}
         <div class="col-lg-8">
-            <h1 class="news-h1"><a href="{%url "article:detail" pk=obj.Id %}">{{obj.Title}}</a></h1>
-            <p class="new-font-color">by {{obj.User}}</p>
-            <p>{{obj.UpdateTime|localtime|date:'M d, Y'}}</p>
-            <p class="new-font-color content-markdown">{{obj.Content|truncatechars:140}}</p>
-            <a class="news-h1" href="{%url "article:detail" pk=obj.Id %}">Read More</a>
-  	        <p class="new-font-color">
-              Tags:
-              <!-- <p>{{obj.Tags}}</p> -->
+            <h1 class="news-h1"><a href="{%url "article:detail" pk=row.0.Id %}">{{row.0.Title}}</a></h1>
+            <p class="new-font-color">by {{row.0.User}}</p>
+            <p>{{row.0.UpdateTime|localtime|date:'M d, Y'}}</p>
+            <p class="new-font-color content-markdown">{{row.0.Content|truncatechars:140}}</p>
+            <a class="news-h1" href="{%url "article:detail" pk=row.0.Id %}">Read More</a>
+            <p class="tags">
+              <div class="p">
+              {%for tag in row.1%}
+                {%if tag%}
+                  <a>{{tag.Tags}}</a>
+                {%endif%}
+              {%endfor%}
+              </div>
+            </p>
             <hr style="border-top: 2px solid #00000080;">
         </div>
         {%endfor%}

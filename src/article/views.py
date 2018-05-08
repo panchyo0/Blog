@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.http import HttpResponse,HttpResponseRedirect,Http404
-from django.shortcuts import render,get_object_or_404,redirect
+from django.shortcuts import render,get_object_or_404,redirect,get_list_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .models import Article
+from .models import Article,TagsArticle,Tag
 from .forms import PostForm
 
 # Create your views here.
@@ -26,12 +26,34 @@ def allArticle(request):
         contacts=paginator.page(1)
     except EmptyPage:
         contacts=paginator.page(paginator.num_pages)
+
+    TagArray=getTags(contacts)
+    rows=zip(contacts,TagArray)
     context={
     	# "form":form,
         "title":title,
         "objects_list":contacts,
+        "rows":rows
     }
     return render(request,"article.html",context)
+
+"""
+return tages for each article，add [] if tag not exist.
+"""
+def getTags(array):
+    AllTags=[]
+    for i in array:
+        current=[]
+        # tags=get_list_or_404(TagsArticle,Article=i.Id)
+        tags=list(TagsArticle.objects.filter(Article=i.Id))
+        if tags:
+            for i in range(len(tags)):
+                current.append(tags[i].Tags)
+        else:
+            current.append([])
+        AllTags.append(current)
+    return AllTags
+
 
 """
 query first 7 artical which published and return it to sidebar if not superuser,
@@ -72,10 +94,23 @@ show detail of artiacal
 """
 def getArticle(request,pk):
     obj=get_object_or_404(Article,Id=pk)
+    tags=getTag(obj)
     context={
         "objects":obj,
+        "tags":tags
     }
     return render(request,"detail.html",context)
+
+def getTag(obj):
+    current=[]
+    # tags=get_list_or_404(TagsArticle,Article=i.Id)
+    tags=list(TagsArticle.objects.filter(Article=obj.Id))
+    if tags:
+        for i in range(len(tags)):
+            current.append(tags[i].Tags)
+    else:
+        current.append([])
+    return current
 
 """
 delete articals
