@@ -19,21 +19,23 @@
   <div class="container">
     <div class="row">
       {%for row in rows%}
-        <div class="col-lg-8">
-            <h1 class="news-h1"><a href="{%url "article:detail" pk=row.0.Id %}">{{row.0.Title}}</a></h1>
-            <p class="new-font-color">by {{row.0.User}}</p>
-            <p>{{row.0.UpdateTime|localtime|date:'M d, Y'}}</p>
-            <p class="new-font-color content-markdown">{{row.0.Content|truncatechars:140}}</p>
-            <a class="news-h1" href="{%url "article:detail" pk=row.0.Id %}">Read More</a>
-            <p class="tags">
-              <div class="p">
-              {%for tag in row.1%}
-                {%if tag%}
-                  <a>{{tag.Tags}}</a>
-                {%endif%}
-              {%endfor%}
-              </div>
-            </p>
+        <div class="col-lg-8" >
+            <h2>{{row.0.Title}}</h2>
+            <div class="tags">
+            {%for tag in row.1%}
+              {%if tag%}
+                <div class="tag">
+                  {{tag.Tags}}
+                </div>
+              {%endif%}
+            {%endfor%}
+            </div>
+            <p class="new-font-color">{{row.0.User}} | {{row.0.UpdateTime|localtime|date:'M d, Y'}}</p>
+            <p class="content-markdown">{{row.0.Content|truncatechars:140}}</p>
+            <!-- <a class="news-h1" href="{%url "article:detail" pk=row.0.Id %}">Read More</a> -->
+            <form class="" action="{%url "article:detail" pk=row.0.Id %}">
+              <input class="btn btn-info" type="submit" value="More" />
+            </form>
             <hr style="border-top: 2px solid #00000080;">
         </div>
         {%endfor%}
