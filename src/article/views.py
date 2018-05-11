@@ -14,10 +14,22 @@ query all artical which published and paginator
 def allArticle(request):
     title='Way to Master'
     limit=7
+    queryTag=request.GET.get("qtag")
+    if queryTag=='all':
+        quearyset=Article.objects.all()
     if not request.user.is_staff or not request.user.is_superuser:
         quearyset=Article.objects.filter(Publish=True).order_by("-UpdateTime")
     else:
         quearyset=Article.objects.all()
+
+    if queryTag:
+        # quearyset=quearyset.filter(Title__icontains=queryTag)
+        if queryTag=='all':
+            quearyset=Article.objects.filter(Publish=True).order_by("-UpdateTime")
+        else:
+            quearyset=getTagArticle(queryTag)
+
+    tagset=Tag.objects.all()
     paginator = Paginator(quearyset, limit) # Show 2 contacts per page
     page = request.GET.get('page')
     try:
@@ -33,10 +45,21 @@ def allArticle(request):
     	# "form":form,
         "title":title,
         "objects_list":contacts,
-        "rows":rows
+        "rows":rows,
+        "tagset":tagset
     }
     return render(request,"article.html",context)
 
+"""
+return all related article with one tag
+"""
+def getTagArticle(tag):
+    allArticle=[]
+    tagObj=get_object_or_404(Tag,Tags=tag)
+    articles=get_list_or_404(TagsArticle,Tags=tagObj.Id)
+    for i in range(len(articles)):
+        allArticle.append(articles[i].Article)
+    return allArticle
 """
 return tages for each article，add [] if tag not exist.
 """

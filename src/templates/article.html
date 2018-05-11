@@ -18,8 +18,8 @@
 {%block body%}
   <div class="container">
     <div class="row">
+      <div class="col-lg-8" >
       {%for row in rows%}
-        <div class="col-lg-8" >
             <h2>{{row.0.Title}}</h2>
             <div class="tags">
             {%for tag in row.1%}
@@ -32,13 +32,17 @@
             </div>
             <p class="new-font-color">{{row.0.User}} | {{row.0.UpdateTime|localtime|date:'M d, Y'}}</p>
             <p class="content-markdown">{{row.0.Content|truncatechars:140}}</p>
-            <!-- <a class="news-h1" href="{%url "article:detail" pk=row.0.Id %}">Read More</a> -->
-            <form class="" action="{%url "article:detail" pk=row.0.Id %}">
-              <input class="btn btn-info" type="submit" value="More" />
-            </form>
+            <a class="news-h1" href="{%url "article:detail" pk=row.0.Id %}">Read More</a>
             <hr style="border-top: 2px solid #00000080;">
-        </div>
         {%endfor%}
+        </div>
+
+        <div class="col-lg-4">
+          <p><a href="/index/ways/?qtag=all">All</a></p>
+          {%for tag in tagset%}
+            <p><a href="/index/ways/?qtag={{tag}}">{{tag}}</a></p>
+          {%endfor%}
+        </div>
       </div>
   </div>
 <!-- start pagination -->
