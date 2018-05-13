@@ -32,7 +32,7 @@ class Article(models.Model):
     User=models.ForeignKey(settings.AUTH_USER_MODEL,default=1)
     Id=models.AutoField(primary_key=True)
     Title=models.CharField(max_length=1000,blank = False)
-
+    Counter=models.IntegerField(default=0)
     Image=models.ImageField(upload_to=upload_location,
                             null=False,
                             blank=False,

@@ -118,6 +118,9 @@ show detail of artiacal
 def getArticle(request,pk):
     obj=get_object_or_404(Article,Id=pk)
     tags=getTag(obj)
+    if obj:
+        obj.Counter+=1
+        obj.save()
     context={
         "objects":obj,
         "tags":tags

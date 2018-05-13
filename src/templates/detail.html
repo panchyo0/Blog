@@ -13,6 +13,16 @@
 <div class="intro-detail">
     <h1 >{{objects.Title}}</h1>
     <h4 id='time-auth'>{{objects.Build|localtime|date:'M d, Y'}} by {{objects.User}}</h4>
+    {%if tags%}
+      {%for tag in tags%}
+      <a class="intro-tag">{{tag.Tags}}</a>
+      {%endfor%}
+    {%endif%}
+
+    {%if user.is_authenticated%}
+      <p><a href="{%url "article:delete" pk=objects.Id %}" class="btn btn-default">Delete</a></p>
+      <p>{{objects.Counter}} Reads</p>
+    {%endif%}
 </div>
 {%endblock intro%}
 
@@ -23,26 +33,13 @@
         background-image: url({{objects.Image.url}});
     }
   </style>
-<div class="container">
-  <p>{{objects.Title}}</p>
+<div class="container" style="padding-right: 10%;padding-left: 10%;margin-bottom: 7%;">
   {%if not objects.Publish%}
   <p>Draft</p>
   {%endif%}
 
-  {%if tags%}
-  <h3>Tags:</h3>
-    {%for tag in tags%}
-    <a>{{tag.Tags}}</a>
-    {%endfor%}
-  {%endif%}
   <p class="content-markdown">{{objects.Content}}</p>
-  <!-- <p>{{objects.updateTime}}</p> -->
-  {%if user.is_authenticated%}
-    <a href="{%url "article:delete" pk=objects.Id %}" class="btn btn-default">Delete</a>
-  {%endif%}
-  <!-- {%if objects.Image%}
-    <img src="{{objects.Image.url}}" class="img-responsive">
-  {%endif%} -->
+
 </div>
 {%endblock body%}
 

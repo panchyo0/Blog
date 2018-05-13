@@ -18,7 +18,7 @@
 {%block body%}
   <div class="container">
     <div class="row">
-      <div class="col-lg-8" >
+      <div class="col-lg-10" >
       {%for row in rows%}
             <h2>{{row.0.Title}}</h2>
             <div class="tags">
@@ -37,10 +37,10 @@
         {%endfor%}
         </div>
 
-        <div class="col-lg-4">
-          <p><a href="/index/ways/?qtag=all">All</a></p>
+        <div class="col-lg-2">
+          <p><a class="filter-tag" href="/index/ways/?qtag=all">All</a></p>
           {%for tag in tagset%}
-            <p><a href="/index/ways/?qtag={{tag}}">{{tag}}</a></p>
+            <p><a class="filter-tag" href="/index/ways/?qtag={{tag}}">{{tag}}</a></p>
           {%endfor%}
         </div>
       </div>

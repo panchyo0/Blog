@@ -14,6 +14,7 @@ class ArticleAdmin(admin.ModelAdmin):
                     "all_Tags",
                     "UpdateTime",
                     "Build",
+                    "Counter",
                     "Publish"]
     class Meta:
         model=Article
