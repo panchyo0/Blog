@@ -20,8 +20,7 @@
     {%endif%}
 
     {%if user.is_authenticated%}
-      <p><a href="{%url "article:delete" pk=objects.Id %}" class="btn btn-default">Delete</a></p>
-      <p>{{objects.Counter}} Reads</p>
+      <p class="btn btn-default">{{objects.Counter}} Reads</p>
     {%endif%}
 </div>
 {%endblock intro%}
