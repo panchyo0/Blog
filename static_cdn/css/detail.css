@@ -1,0 +1,67 @@
+/*nav*/
+body, html {
+  height: 100%;
+  margin: 0;
+}
+.bg {
+
+  /* Full height */
+  height: 65%;
+  width: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.inner{
+    height: 65%;
+    width: 100%;
+    background: rgba(0,0,0,.4);
+    position: absolute;
+    top:0;
+}
+/*end nav*/
+
+/*intro*/
+.intro-detail{
+  color: #ffffffe8;
+  margin-top: 7%;
+  text-align: center;
+}
+
+#time-auth{
+  color: #e8e8e878;
+  margin-top: 5%;
+}
+/*end intro*/
+
+/*body*/
+.star-body{
+  position: absolute;
+  top: 70vh;
+}
+
+.intro-tag{
+display: inline-block;
+color: #cdcdcd;
+line-height: 26px;
+padding: 0 20px 0 23px;
+position: relative;
+margin: 0 10px 10px 0;
+text-decoration: none;
+-webkit-transition: color 0.2s;
+}
+
+.intro-tag::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: '';
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+/*end body*/

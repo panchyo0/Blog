@@ -1,0 +1,18 @@
+#flag{
+  visibility: hidden;
+}
+
+.intro{
+  margin-left: 10%;
+  /*color: white ;*/
+}
+
+#id_Content{
+  margin: 0px;
+  width: 90%;
+  height: 70%;
+  color: black;
+}
+#id_Title{
+  color: black;
+}

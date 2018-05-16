@@ -1,0 +1,60 @@
+/*nav*/
+body, html {
+  height: 100%;
+  margin: 0;
+}
+.bg {
+
+  /* Full height */
+  height: 55%;
+  width: 100%;
+  /* The image used */
+  background-image: url(/static/image/ways.jpg);
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.inner{
+    height: 55%;
+    width: 100%;
+    background: rgba(0,0,0,.4);
+    position: absolute;
+    top:0;
+}
+
+.star-body{
+  position: absolute;
+  top: 60vh;
+}
+/*end nav*/
+
+/*intro*/
+.intro-detail{
+  color: #ffffffe8;
+  margin-top: 7%;
+  text-align: center;
+}
+/*end intro*/
+
+
+.news-contaioner{
+margin-top: 80px;
+}
+.news-h1{
+font-size: 18px;
+}
+.new-font-color{
+color: #777;
+}
+
+.nav-side-btn-img{
+  margin-bottom: 10px;
+}
+
+/*filter tag*/
+.filter-tag:hover {
+  font-size: 30px;
+}
+/*end filter tag*/
